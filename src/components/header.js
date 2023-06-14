@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/header.css'; 
+import logoImage from '../images/logo/logo-110x56.png';
 
 const HeaderComponent = () => {
   return (
@@ -7,7 +8,7 @@ const HeaderComponent = () => {
       <div className="wrap">
         <div className="logo">
           <a href="index.html" title="Transfers">
-            <img src="../images/logo/logo-110x56.png" alt="The Luxury Transfers" />
+            <img src={logoImage} alt="The Luxury Transfers" />
           </a>
         </div>
 

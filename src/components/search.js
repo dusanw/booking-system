@@ -4,6 +4,8 @@ import { FormControlLabel, Radio, TextField } from '@mui/material';
 import { DesktopDateTimePicker } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import { DatePicker, TimePicker } from '@mui/lab';
+
 
 function Search() {
   const [tripType, setTripType] = useState('oneway');
@@ -21,16 +23,27 @@ function Search() {
           <div className="f-row">
             <div className="form-group datepicker one-third">
               <label htmlFor="dep-date">Departure date and time</label>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DesktopDateTimePicker
-                  id="dep-date"
-                  value={depDateTime}
-                  onChange={(newValue) => setDepDateTime(newValue)}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
+			  <LocalizationProvider dateAdapter={AdapterDateFns}>
+				<DatePicker
+				  label="Date"
+				  value={depDateTime}
+				  onChange={(newValue) => {
+					setDepDateTime(newValue);
+				  }}
+				  renderInput={(params) => <TextField {...params} />}
+				/>
+				<TimePicker
+				  label="Time"
+				  value={depDateTime}
+				  onChange={(newValue) => {
+					setDepDateTime(newValue);
+				  }}
+				  renderInput={(params) => <TextField {...params} />}
+				/>
+			</LocalizationProvider>
+
             </div>
-            <div class="form-group select one-third">
+            <div className="form-group select one-third">
 							<label>Pick up location</label>
 							<select>
 								<option selected>&nbsp;</option>
@@ -56,7 +69,7 @@ function Search() {
 								</optgroup>
 							</select>
 						</div>
-						<div class="form-group select one-third">
+						<div className="form-group select one-third">
 							<label>Drop off location</label>
 							<select>
 								<option selected>&nbsp;</option>
@@ -97,7 +110,7 @@ function Search() {
                   />
                 </LocalizationProvider>
               </div>
-              <div class="form-group select one-third">
+              <div className="form-group select one-third">
 							<label>Pick up location</label>
 							<select>
 								<option selected>&nbsp;</option>
@@ -123,7 +136,7 @@ function Search() {
 								</optgroup>
 							</select>
 						</div>
-						<div class="form-group select one-third">
+						<div className="form-group select one-third">
 							<label>Drop off location</label>
 							<select>
 								<option selected>&nbsp;</option>
@@ -153,7 +166,7 @@ function Search() {
           )}
 
           <div className="f-row">
-            <div class="form-group spinner">
+            <div className="form-group spinner">
 							<label for="people">How many people <small>(including children)</small>?</label>
 							<input type="number" id="people" min="1"  />
 						</div>
@@ -177,8 +190,8 @@ function Search() {
                 />
               </div>
             </div>
-            <div class="form-group right">
-							<button type="submit" class="btn large black" id="find-transfer-button">Find a transfer</button>
+            <div className="form-group right">
+							<button type="submit" className="btn large black" id="find-transfer-button">Find a transfer</button>
 						</div>
           </div>
         </form>

@@ -181,6 +181,26 @@
     border-color: #191f26;
 }
 
-.ui_tpicker_unit_hide {
+/* .ui_tpicker_unit_hide {
     display: none !important;
+}
+ */
+.react-datepicker-popper {
+    z-index: 9999 !important;
+}
+
+.datepicker {
+    z-index: 9999 !important;
+}
+
+/* search.css */
+
+/* Add this to your existing search.css */
+.MuiFormControl-root {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.MuiInputBase-root {
+    width: 100%;
 }
